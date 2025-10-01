@@ -106,6 +106,12 @@ Règles :
 
 ---
 
+## Schéma
+
+![alt text](<assets/img/MVP Monolith.png>)
+
+---
+
 ## Évolutions possibles
 
 - Interface web (React / Vue / Svelte)
