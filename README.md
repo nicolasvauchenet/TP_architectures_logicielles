@@ -28,22 +28,20 @@ Cette version illustre une architecture 3-Tier (Presentation / Business / Data) 
 ```bash
 src/
 ├── business/             # Couche Domaine / logique métier
-│   ├── entities/         # Entités métier (Artist, Concert, Reservation…)
-│   └── services/         # Cas d’usage (ArtistService, ReservationService…)
-│
-├── infrastructure/       # Couche technique (accès BDD & ressources)
-│   ├── db/               # Connexion + migrations SQLite
-│   │   └── index.js
-│   └── repositories/     # Repositories SQLite (artistRepository…)
+│   ├── entities/         # Entités métier
+│   └── services/         # Cas d’usage
 │
 ├── presentation/         # Couche Présentation (adaptateur HTTP)
 │   ├── controllers/      # Contrôleurs Express
 │   └── routes/           # Routes HTTP Express
 │
+├── repositories/         # Repositories SQLite
+│
 ├── app.js                # Construction de l’app Express (routes, middlewares, DI)
 ├── container.js          # Wiring : Factory + Facade
+├── db.js                 # Connexion + migrations SQLite
 ├── errors.js             # Définition + middleware des erreurs
-└── index.js              # Bootstrap serveur (dotenv + listen)
+└── index.js              # Bootstrap serveur
 ```
 
 - **Presentation** : gère les requêtes HTTP via Express (routes + contrôleurs).
