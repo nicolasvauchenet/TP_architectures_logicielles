@@ -9,6 +9,7 @@ import { makeAppServices } from "./container.js";
 const app = express();
 app.use(express.json());
 
+// Facade
 app.locals.services = makeAppServices().services;
 
 app.use("/artists", artistsRoutes);
