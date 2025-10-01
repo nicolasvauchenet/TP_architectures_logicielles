@@ -1,3 +1,45 @@
+# Festival – 3-Tier Architecture
+
+Une application Node.js + Express + SQLite pour gérer la programmation d’un festival de musique, les réservations et quelques rapports statistiques.
+Cette version illustre une architecture 3-Tier (Presentation / Business / Data) avec deux Design Patterns GoF intégrés : Factory et Façade.
+
+## Installation
+
+### Prérequis
+
+- Node.js ≥ 18
+- npm ou yarn
+
+### Étapes
+
+1. Cloner le dépôt ou copier les fichiers
+
+2. Installer les dépendances (npm install ou yarn install)
+
+3. Lancer le serveur (npm run dev)
+
+4. Par défaut, le serveur écoute sur http://localhost:3000.
+   Une base SQLite (festival.db) est créée automatiquement dans le dossier courant.
+
+---
+
+## Structure du projet
+
+```bash
+src/
+  presentation/       # Couche Presentation (Express)
+    routes/           # Routes HTTP
+    controllers/      # Contrôleurs minces
+  business/           # Couche Business (logique métier)
+    entities/         # Entités métier simples
+    services/         # Services métier (cas d’usage)
+  repositories/       # Couche Data (SQLite)
+    db.js             # Connexion et migrations
+  container.js        # Wiring = Abstract Factory + Facade
+  index.js            # Bootstrap serveur
+  errors.js           # Gestion des erreurs métier
+```
+
 - **Presentation** : gère les requêtes HTTP via Express (routes + contrôleurs).
 - **Business** : encapsule les règles métier dans des services (capacités, unicité email, etc.).
 - **Data** : interagit avec SQLite via des repositories.
