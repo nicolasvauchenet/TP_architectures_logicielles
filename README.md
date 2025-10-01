@@ -1,6 +1,6 @@
 # Festival – 3-Tier Architecture
 
-Une application Node.js + Express + SQLite pour gérer la programmation d’un festival de musique, les réservations et quelques rapports statistiques.
+Une application Node.js + Express + SQLite pour gérer la programmation d’un festival de musique, les réservations et quelques rapports statistiques.  
 Cette version illustre une architecture 3-Tier (Presentation / Business / Data) avec deux Design Patterns GoF intégrés : Factory et Façade.
 
 ## Installation
