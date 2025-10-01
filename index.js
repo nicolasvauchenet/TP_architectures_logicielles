@@ -28,7 +28,6 @@ CREATE TABLE IF NOT EXISTS reservations(
 `);
 
 // --- Helpers --------------------------------------------------------------------------------------
-// Valeur par défaut [] pour éviter "Too many parameter values were provided"
 const row = (sql, p = []) => db.prepare(sql).get(p);
 const all = (sql, p = []) => db.prepare(sql).all(p);
 const run = (sql, p = []) => db.prepare(sql).run(p);
@@ -89,7 +88,7 @@ app.delete("/artists/:id", (req, res) => {
   res.status(204).end();
 });
 
-// --- Concerts CRUD (liste détaillée = stats par concert) ------------------------------------------
+// --- Concerts CRUD --------------------------------------------------------------------------------
 app.get("/concerts", (req, res) => {
   res.json(all(concertStatsOrdered));
 });
@@ -141,7 +140,7 @@ app.delete("/concerts/:id", (req, res) => {
   res.status(204).end();
 });
 
-// --- Programmation dispo (seulement concerts avec places restantes) -------------------------------
+// --- Programmation disponible ---------------------------------------------------------------------
 app.get("/programming", (req, res) => {
   res.json(
     all(
@@ -204,7 +203,7 @@ app.post("/reservations", (req, res) => {
 });
 
 // --- Rapports -------------------------------------------------------------------------------------
-// A) KPIs globaux de remplissage (différent de /concerts qui est granulaire)
+// A) KPIs globaux de remplissage
 app.get("/reports/fill-rate", (req, res) => {
   const summary = row(
     `
@@ -242,7 +241,7 @@ app.get("/reports/by-artist", (req, res) => {
   res.json(all(sql));
 });
 
-// C) Remplissage par jour (date ISO -> date SQLite)
+// C) Remplissage par jour
 app.get("/reports/by-day", (req, res) => {
   const sql = `
     WITH stats AS (${concertStatsBase})
@@ -260,7 +259,7 @@ app.get("/reports/by-day", (req, res) => {
   res.json(all(sql));
 });
 
-// D) Total des réservations (toutes lignes)
+// D) Total des réservations
 app.get("/reports/total-reservations", (req, res) => {
   const r = row(`SELECT COALESCE(SUM(qty),0) AS total FROM reservations`);
   res.json(r);
