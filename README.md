@@ -58,25 +58,11 @@
 - Rôle : instancier tous les services en injectant leurs dépendances (repositories).
 - Avantage : centralisation de la configuration, testabilité (mocks possibles).
 
-```js
-export function makeAppServices() {
-  return {
-    artist: makeArtistService({ artistRepository }),
-    concert: makeConcertService({ concertRepository, artistRepository }),
-    reservation: makeReservationService({
-      reservationRepository,
-      concertRepository,
-    }),
-    report: makeReportService({ reportRepository }),
-  };
-}
-```
-
 ### Facade
 
 - Exposé par : `makeAppServices().services`
-  Rôle : offrir un point d’entrée simple et unique (app.locals.services) aux couches supérieures.
-  Avantage : les contrôleurs n’ont pas besoin de connaître le wiring interne.
+- Rôle : offrir un point d’entrée simple et unique (app.locals.services) aux couches supérieures.
+- Avantage : les contrôleurs n’ont pas besoin de connaître le wiring interne.
 
 ---
 
@@ -89,10 +75,10 @@ export function makeAppServices() {
 ## Évolutions possibles
 
 - UI web (React / Vue / Svelte) connectée à l’API REST
-  Authentification / autorisation
-  Notifications email à chaque réservation
-  Export CSV / PDF des rapports
-  Migration vers des patterns plus avancés : CQRS, DDD, Hexagonal, microservices
+- Authentification / autorisation
+- Notifications email à chaque réservation
+- Export CSV / PDF des rapports
+- Migration vers des patterns plus avancés : CQRS, DDD, Hexagonal, microservices
 
 ---
 
