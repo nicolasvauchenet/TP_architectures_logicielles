@@ -1,4 +1,5 @@
-import db from "./db.js";
+import db from "../db.js";
+
 export const concertRepository = {
   create({ artist_id, starts_at, capacity }) {
     const info = db

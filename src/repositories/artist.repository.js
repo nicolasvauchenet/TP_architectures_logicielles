@@ -1,4 +1,5 @@
-import db from "./db.js";
+import db from "../db.js";
+
 export const artistRepository = {
   create({ name }) {
     const info = db.prepare("INSERT INTO artists(name) VALUES(?)").run(name);

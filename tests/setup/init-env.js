@@ -1,8 +1,4 @@
-import "dotenv/config";
-
-process.env.SQLITE_PATH = ":memory:";
-
-import db from "../../src/repositories/db.js";
+import db from "../../src/db.js";
 
 function resetDb() {
   db.exec(`
