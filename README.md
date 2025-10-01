@@ -108,11 +108,12 @@ Règles :
 
 ## Évolutions possibles
 
-- Authentification et gestion des utilisateurs
 - Interface web (React / Vue / Svelte)
-- Export PDF / CSV des rapports
+- Authentification et gestion des utilisateurs
+- Billeterie & preuve de réservation
 - Notifications email sur réservations
-- Passage en architecture modulaire (microservices, CQRS, etc.)
+- Export PDF / CSV des rapports
+- Passage en architecture modulaire (CQRS / n-tier, ddd / clean, hexagonale, microservices, etc.)
 
 ---
 
